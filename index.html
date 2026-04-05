@@ -303,24 +303,5 @@
                 container.appendChild(p);
             }
         }
-        createParticles();
-    </script>// ฟังก์ชันนับจำนวนผู้เข้าชมจริง
-async function updateVisitorCount() {
-    try {
-        // เปลี่ยนคำว่า 'jaracyber_v1' เป็นชื่ออะไรก็ได้ที่คุณต้องการ (ห้ามมีช่องว่าง)
-        const response = await fetch('https://api.counterapi.dev/v1/jaracyber_v1/visits/up');
-        const data = await response.json();
-        
-        // แสดงผลตัวเลข (เติม 0 ข้างหน้าให้ดูเป็นรหัส)
-        const count = data.count.toString().padStart(6, '0');
-        document.getElementById('visitor-count').innerText = count;
-    } catch (error) {
-        document.getElementById('visitor-count').innerText = "ERROR_OFFLINE";
-    }
-}
-
-// เรียกใช้งานเมื่อ Login สำเร็จ
-// (ให้ไปใส่ชื่อฟังก์ชันนี้ใน doLogin() หลังจาก navTo('screen-home'))
-updateVisitorCount();
 </body>
 </html>
